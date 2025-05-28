@@ -12,260 +12,244 @@ const App = () => {
   const [loadedImages, setLoadedImages] = useState({});
 
   // Business categories data
-  const categories = [
-    {
-      id: 'fish-sales',
-      title: 'Premium Fish Sales',
-      icon: <FaFish className="text-red-500 text-2xl" />,
-      description: 'We offer the freshest, highest-quality fish in the region, carefully selected and handled for optimal taste and nutrition.',
-      importance: 'Fresh fish is packed with omega-3 fatty acids, high-quality protein, and essential nutrients that support heart and brain health. Our fish are sourced daily from trusted local fishermen.',
-      tips: [
-        'For maximum freshness, consume within 2 days of purchase or freeze immediately',
-        'Our tilapia is farmed in pristine conditions with no antibiotics',
-        'Mudfish is excellent for traditional dishes and rich in flavor'
-      ],
-      items: [
-        { name: 'Tilapia', price: 'UGX 8,000/kg', image: '/20240323_143136.jpg' },
-        { name: 'Tilapia', price: 'UGX 8,000/kg', image: '/20241003_180524.jpg' },
-        { name: 'Mudfish', price: 'UGX 10,000/kg', image: '/20241003_180513.jpg' },
-        { name: 'Catfish', price: 'UGX 9,500/kg', image: '/20231128_102731.jpg' },
-        { name: 'Nile Perch', price: 'UGX 12,000/kg', image: '/20240323_143830.jpg' },
-        { name: 'Fresh Harvesting', price: 'UGX 9,500/kg', image: '/20241220_154009.jpg' },
-        { name: 'Harvesting', price: 'UGX 9,500/kg', image: '/20241220_154331.jpg' },
-        { name: 'Catfish', price: 'UGX 9,500/kg', image: '/20250308_115236.jpg' },
-        { name: 'Catfish', price: 'UGX 9,500/kg', image: '/eat.png'},
-        { name: 'Catfish', price: 'UGX 9,500/kg', image: '/20250308_115236.jpg'}
-      ]
-    },
-    {
-      id: 'bike-repair',
-      title: 'Expert Bike Repair',
-      icon: <MdDirectionsBike className="text-amber-600 text-2xl" />,
-      description: 'Your trusted partner for all bicycle repair and maintenance needs, from quick fixes to complete overhauls.',
-      importance: 'Regular bicycle maintenance ensures safety, improves performance, and extends the lifespan of your bike. Our certified mechanics use premium parts and tools.',
-      tips: [
-        'Get a tune-up every 500km or 6 months for optimal performance',
-        'Properly inflated tires can improve efficiency by up to 15%',
-        'Regular chain lubrication prevents wear and tear on components'
-      ],
-      services: [
-        { name: 'Full Bike Repair', price: 'UGX 25,000', image: '/20241031_182228.jpg' },
-        { name: 'Garage Operations', price: 'UGX 25,000', image: '/20240130_163445_001.jpg' },
-        { name: 'sons-of-men', price: 'UGX 15,000', image: '/20241022_174812.jpg' },
-        { name: 'sons-of-men', price: 'UGX 50,000', image: '/20241031_182254.jpg' },
-        { name: 'sons-of-men', price: 'UGX 20,000', image: '/20241031_182300.jpg' },
-                { name: 'sons-of-men', price: 'UGX 20,000', image: '/IMG_20230125_145522.jpg' },
-        { name: 'sons-of-men', price: 'UGX 20,000', image: '/IMG_20230128_161322.jpg' },
-        { name: 'sons-of-men', price: 'UGX 20,000', image: '/20241031_200843.jpg' },
-
-      ]
-    },
-    {
-      id: 'car-sales',
-      title: 'Quality Car Sales',
-      icon: <FaCar className="text-amber-600 text-2xl" />,
-      description: 'Exceptional selection of second-hand and classic vehicles, each thoroughly inspected for reliability and value.',
-      importance: 'Buying a quality used car can save you up to 50% compared to new vehicles while still providing reliable transportation. We perform 150-point inspections on all our vehicles.',
-      tips: [
-        'Consider fuel efficiency - can save you thousands annually',
-        'Check service history for regular maintenance records',
-        'Test drive multiple vehicles to compare handling and comfort'
-      ],
-      items: [
-        { name: 'Peugeot 504', price: 'UGX 18,000,000', image: '/1730401560451.jpg' },
-        { name: 'Customized ', price: 'UGX 22,000,000', image: '/20241015_121153_0000.png' },
-        { name: 'Customize your "wheel"', price: 'UGX 12,000,000', image: '/3_20240928_183851_0002.png' },
-        { name: 'Full Car Customization', price: 'UGX 35,000,000', image: '/20240815_165345.jpg' },
-        { name: 'sons-of-men', price: 'UGX 35,000,000', image: '/20240815_165440.jpg' },
-        { name: 'sons-of-men', price: 'UGX 35,000,000', image: '/20240815_171608.jpg' },
-                { name: 'sons-of-men', price: 'UGX 35,000,000', image: '/20240818_153109.jpg' },
-        { name: 'sons-of-men', price: 'UGX 35,000,000', image: '/20240815_165440.jpg' },
-        { name: 'sons-of-men', price: 'UGX 35,000,000', image: '/20240815_165440.jpg' },
-        { name: 'sons-of-men', price: 'UGX 35,000,000', image: '/20240815_165440.jpg' },
-
-
-      ]
-    },
-
-    {
-      id: 'furniture-sales',
-      title: 'Radiant Furnitures',
-      icon: <FaCar className="text-amber-600 text-2xl" />,
-      description: 'Exceptional selection of second-hand and classic vehicles, each thoroughly inspected for reliability and value.',
-      importance: 'Buying quality comffy furniture can save you up to 50% compared  reliable.',
-      tips: [
-        'Consider comfort and relaxation',
-        'Check maintenance methods',
-        'Test multiple seats to compare handling and comfort'
-      ],
-      items: [
-        { name: 'All degrees seats', price: 'UGX 18,000,000', image: '/20231116_114827.jpg' },
-        { name: 'Entire setup', price: 'UGX 22,000,000', image: '/20231117_124022.jpg' },
-        { name: 'Effective for sun basking', price: 'UGX 12,000,000', image: '/20231117_125354.jpg' },
-        { name: 'Classic', price: 'UGX 35,000,000', image: '/20231124_145446.jpg' }
-      ]
-    },
-
-    {
-      id: 'motorcycle-sales',
-      title: 'Premium Motorcycle Sales',
-      icon: <GiMechanicGarage className="text-amber-600 text-2xl" />,
-      description: 'From rugged dirt bikes to smooth commuters, we offer the best selection of quality motorcycles.',
-      importance: 'Motorcycles provide affordable transportation with excellent fuel efficiency. Our bikes undergo rigorous inspections to ensure roadworthiness.',
-      tips: [
-        'Consider your primary use (commuting vs off-road) when selecting',
-        'Always invest in quality safety gear',
-        'Regular maintenance is crucial for motorcycle longevity'
-      ],
-      items: [
-        { name: 'Yamaha DT 125', price: 'UGX 6,500,000', image: '49.png' },
-        { name: 'Honda CRF 250', price: 'UGX 12,000,000', image: '/1727058096885.jpg' },
-        { name: 'Suzuki DR 200', price: 'UGX 8,000,000', image: '/20250524_153522.jpg' }
-      ]
-    },
-    {
-      id: 'music-instruments',
-      title: 'Professional Music Instruments',
-      icon: <MdMusicNote className="text-amber-600 text-2xl" />,
-      description: 'Quality instruments for musicians of all levels, from beginners to professionals.',
-      importance: 'Playing musical instruments enhances cognitive abilities, reduces stress, and provides creative expression. We offer instruments that maintain excellent tone and playability.',
-      tips: [
-        'Acoustic guitars should be stored at stable humidity levels',
-        'Electronic keyboards should be covered when not in use',
-        'Regular tuning maintains instrument health and sound quality'
-      ],
-      items: [
-        { name: 'Acoustic Guitar', price: 'UGX 350,000', image: '/placeholder-guitar.jpg' },
-        { name: 'Mention Yours', price: 'UGX 750,000', image: '/IMG_20231004_090917_626.jpg' },
-        { name: 'sons-of-men', price: 'UGX 1,200,000', image: '/20250417_182101.jpg' }
-      ]
-    },
-    {
-      id: 'music-lessons',
-      title: 'Expert Music Lessons',
-      icon: <GiGuitar className="text-amber-600 text-2xl" />,
-      description: 'Personalized music instruction tailored to your goals and skill level.',
-      importance: 'Structured music education accelerates learning and builds proper technique. Our instructors are experienced performers and educators.',
-      tips: [
-        'Consistent practice (even 15 minutes daily) yields best results',
-        'Record yourself to track progress',
-        'Start with proper posture and hand positioning'
-      ],
-      services: [
-        { name: 'Guitar Lessons', price: 'UGX 30,000/session', image: '/20240411_151028.jpg' },
-        { name: 'Keyboard Lessons', price: 'UGX 35,000/session', image: '/20240411_152623.jpg' },
-        { name: 'Vocal Training', price: 'UGX 25,000/session', image: '/20240411_152738.jpg' }
-      ]
-    },
-    {
-      id: 'art-portraits',
-      title: 'Fine Art & Portraits',
-      icon: <FaPalette className="text-amber-600 text-2xl" />,
-      description: 'Custom artwork that captures personality, emotion, and beauty in every stroke.',
-      importance: 'Art enhances living spaces and preserves memories in a unique, personal way. Our artists combine technical skill with creative vision.',
-      tips: [
-        'Provide clear reference photos for portraits',
-        'Consider lighting in the display location',
-        'Oil paintings require proper curing time'
-      ],
-      services: [
-        { name: 'Portrait Drawing', price: 'UGX 100,000', image: '/20230419_161818.jpg' },
-        { name: 'Landscape Art', price: 'UGX 150,000', image: '/20230419_161909.jpg' },
-        { name: 'Custom Commission', price: 'Varies', image: '/sonssss.jpg' },
-        { name: 'Custom Commission', price: 'Varies', image: '/portrait.jpg' }
-
-      ]
-    },
-    {
-      id: 'farm-produce',
-      title: 'Fresh Farm Produce',
-      icon: <GiFarmer className="text-amber-600 text-2xl" />,
-      description: 'Locally grown, organic produce delivered fresh from farm to your table.',
-      importance: 'Fresh, local produce retains more nutrients and supports community agriculture. We work directly with farmers to ensure quality and fair prices.',
-      tips: [
-        'Store root vegetables in cool, dark places',
-        'Bananas ripen faster when stored with other fruits',
-        'Fresh corn is best consumed within 3 days of harvest'
-      ],
-      items: [
-        { name: 'Goat', price: 'UGX 2,500/kg', image: '/20231112_171011.jpg' },
-        { name: 'Goat', price: 'UGX 2,500/kg', image: '/20230521_162939.jpg' },
-        { name: 'Woolen Sheep', price: 'UGX 1,800/kg', image: '/20240429_150628.jpg' },
-        { name: 'Grade Rabbits', price: 'UGX 8,000/kg', image: '/20240510_183728.jpg' },
-        { name: 'Baby Rabbits', price: 'UGX 3,000/bunch', image: '/20240510_183833.jpg' },
-                { name: 'Premature Cows', price: 'UGX 3,000/bunch', image: '/20230415_180331.jpg' },
-        { name: 'Baby Rabbits', price: 'UGX 3,000/bunch', image: '/20240510_183833.jpg' },
-                { name: 'Young Tree', price: 'UGX 3,000/bunch', image: '/20250326_195634.jpg' },
-                        { name: 'Hand-Picked Coffee', price: 'UGX 3,000/bunch', image: '/20240622_134738.jpg' },
-                { name: 'Dried Coffee Berries', price: 'UGX 3,000/bunch', image: '/20240622_134645.jpg' },
-                                { name: 'Fresh Pineapples', price: 'UGX 3,000/bunch', image: '/20240227_144110.jpg' }
-
-      ]
-    },
-    {
-      id: 'music-band',
-      title: 'Professional Music Band',
-      icon: <GiPianoKeys className="text-amber-600 text-2xl" />,
-      description: 'Talented musicians creating unforgettable experiences for your special events.',
-      importance: 'Live music elevates events, creating atmosphere and memories. Our versatile band adapts to your musical preferences and event needs.',
-      tips: [
-        'Book at least 3 months in advance for peak seasons',
-        'Provide a playlist of must-play songs',
-        'Consider venue acoustics when planning setup'
-      ],
-      services: [
-        { name: 'Any Performance', price: 'UGX 1,500,000', image: '/1729932358493.jpg' },
-        { name: 'Corporate Event', price: 'UGX 2,000,000', image: '/VideoCapture_20231006-064028.jpg' },
-        { name: 'Casual Occassions', price: 'UGX 1,200,000', image: '/20250417_182101.jpg' }
-      ]
-    },
-      {
-      id: 'bike-adventures',
-      title: 'Epic Bike Tours & Adventures',
-      icon: <FaPalette className="text-amber-600 text-2xl" />,
-      description: 'Visit the place, write your name on it, riding on two wheels..',
-      importance: 'Bike rides are and have been one of the best relaxations and therapies proven by West Virginia.',
-      tips: [
-        'Put on safety gears ',
-        'Ride like a hero and rock it',
-        'Dont need to be professional, just hop on'
-      ],
-      services: [
-        { name: 'Portrait Drawing', price: 'UGX 100,000', image: '/1703334666360.jpg' },
-        { name: 'Sky-Tarmac Ride', price: 'UGX 150,000', image: '/1724735261669.jpg' },
-        { name: 'Sky-Tarmac Ride', price: 'UGX 150,000', image: '/20241207_210825_0000.png.png' },
-        { name: 'Sky-Tarmac Ride', price: 'UGX 150,000', image: '/20241121_092511_0000.png' },
-        { name: 'Landscape Art', price: 'UGX 150,000', image: '/20241015_120803_0000.png' },
-        { name: 'Come Tour With the Best', price: 'UGX 150,000', image: '/20241015_121819_0000.png' },
-        { name: 'With A Variety Of Bikes', price: 'UGX 150,000', image: '/20241015_122102_0000.png' },
-        { name: 'Camp & Rest', price: 'Varies', image: '/1727074906511.jpg' },
-      ]
-    }
-    ,
-      {
-      id: 'phone-repair',
-      title: 'Phone Sales & Repair',
-      icon: <FaPalette className="text-amber-600 text-2xl" />,
-      description: 'All phone related problems fixed here',
-      importance: 'Phones are by far crucial devices in our lives. And we need to take care of them when they have issues',
-      tips: [
-        'Screen Repairs ',
-        'Software problems solutions',
-        'Battery replacements',
-        'etc'
-      ],
-      services: [
-        // { name: 'Portrait Drawing', price: 'UGX 100,000', image: '/1703334666360.jpg' },
-        // { name: 'Sky-Tarmac Ride', price: 'UGX 150,000', image: '/1724735261669.jpg' },
-        // // { name: 'Sky-Tarmac Ride', price: 'UGX 150,000', image: '/20241207_210825_0000.png.png' },
-        // // { name: 'Sky-Tarmac Ride', price: 'UGX 150,000', image: '/20241121_092511_0000.png' },
-        // // { name: 'Landscape Art', price: 'UGX 150,000', image: '/20241015_120803_0000.png' },
-        // // { name: 'Come Tour With the Best', price: 'UGX 150,000', image: '/20241015_121819_0000.png' },
-        // // { name: 'With A Variety Of Bikes', price: 'UGX 150,000', image: '/20241015_122102_0000.png' },
-        // // { name: 'Camp & Rest', price: 'Varies', image: '/1727074906511.jpg' }
-      ]
-    }
-  ];
+// Business categories data
+const categories = [
+  {
+    id: 'fish-sales',
+    title: 'Premium Fish Sales',
+    icon: <FaFish className="text-red-500 text-2xl" />,
+    description: 'We offer the freshest, highest-quality fish in the region, carefully selected and handled for optimal taste and nutrition.',
+    importance: 'Fresh fish is packed with omega-3 fatty acids, high-quality protein, and essential nutrients that support heart and brain health. Our fish are sourced daily from trusted local fishermen.',
+    tips: [
+      'For maximum freshness, consume within 2 days of purchase or freeze immediately',
+      'Our tilapia is farmed in pristine conditions with no antibiotics',
+      'Mudfish is excellent for traditional dishes and rich in flavor'
+    ],
+    items: [
+      { name: 'Tilapia', price: 'Fair prices', image: '/20240323_143136.jpg' },
+      { name: 'Tilapia', price: 'Fair prices', image: '/20241003_180524.jpg' },
+      { name: 'Mudfish', price: 'Fair prices', image: '/20241003_180513.jpg' },
+      { name: 'Catfish', price: 'Fair prices', image: '/20231128_102731.jpg' },
+      { name: 'Nile Perch', price: 'Fair prices', image: '/20240323_143830.jpg' },
+      { name: 'Fresh Harvesting', price: 'Fair prices', image: '/20241220_154009.jpg' },
+      { name: 'Harvesting', price: 'Fair prices', image: '/20241220_154331.jpg' },
+      { name: 'Catfish', price: 'Fair prices', image: '/20250308_115236.jpg' },
+      { name: 'Catfish', price: 'Fair prices', image: '/eat.png'},
+      { name: 'Catfish', price: 'Fair prices', image: '/20250308_115236.jpg'}
+    ]
+  },
+  {
+    id: 'bike-repair',
+    title: 'Expert Bike Repair',
+    icon: <MdDirectionsBike className="text-amber-600 text-2xl" />,
+    description: 'Your trusted partner for all bicycle repair and maintenance needs, from quick fixes to complete overhauls.',
+    importance: 'Regular bicycle maintenance ensures safety, improves performance, and extends the lifespan of your bike. Our certified mechanics use premium parts and tools.',
+    tips: [
+      'Get a tune-up every 500km or 6 months for optimal performance',
+      'Properly inflated tires can improve efficiency by up to 15%',
+      'Regular chain lubrication prevents wear and tear on components'
+    ],
+    services: [
+      { name: 'Full Bike Repair', price: 'Fair prices', image: '/20241031_182228.jpg' },
+      { name: 'Garage Operations', price: 'Fair prices', image: '/20240130_163445_001.jpg' },
+      { name: 'sons-of-men', price: 'Fair prices', image: '/20241022_174812.jpg' },
+      { name: 'sons-of-men', price: 'Fair prices', image: '/20241031_182254.jpg' },
+      { name: 'sons-of-men', price: 'Fair prices', image: '/20241031_182300.jpg' },
+      { name: 'sons-of-men', price: 'Fair prices', image: '/IMG_20230125_145522.jpg' },
+      { name: 'sons-of-men', price: 'Fair prices', image: '/IMG_20230128_161322.jpg' },
+      { name: 'sons-of-men', price: 'Fair prices', image: '/20241031_200843.jpg' },
+    ]
+  },
+  {
+    id: 'car-sales',
+    title: 'Quality Car Sales',
+    icon: <FaCar className="text-amber-600 text-2xl" />,
+    description: 'Exceptional selection of second-hand and classic vehicles, each thoroughly inspected for reliability and value.',
+    importance: 'Buying a quality used car can save you up to 50% compared to new vehicles while still providing reliable transportation. We perform 150-point inspections on all our vehicles.',
+    tips: [
+      'Consider fuel efficiency - can save you thousands annually',
+      'Check service history for regular maintenance records',
+      'Test drive multiple vehicles to compare handling and comfort'
+    ],
+    items: [
+      { name: 'Peugeot 504', price: 'Fair prices', image: '/1730401560451.jpg' },
+      { name: 'Customized ', price: 'Fair prices', image: '/20241015_121153_0000.png' },
+      { name: 'Customize your "wheel"', price: 'Fair prices', image: '/3_20240928_183851_0002.png' },
+      { name: 'Full Car Customization', price: 'Fair prices', image: '/20240815_165345.jpg' },
+      { name: 'sons-of-men', price: 'Fair prices', image: '/20240815_165440.jpg' },
+      { name: 'sons-of-men', price: 'Fair prices', image: '/20240815_171608.jpg' },
+      { name: 'sons-of-men', price: 'Fair prices', image: '/20240818_153109.jpg' },
+      { name: 'sons-of-men', price: 'Fair prices', image: '/20240815_165440.jpg' },
+      { name: 'sons-of-men', price: 'Fair prices', image: '/20240815_165440.jpg' },
+      { name: 'sons-of-men', price: 'Fair prices', image: '/20240815_165440.jpg' },
+    ]
+  },
+  {
+    id: 'furniture-sales',
+    title: 'Radiant Furnitures',
+    icon: <FaCar className="text-amber-600 text-2xl" />,
+    description: 'Exceptional selection of second-hand and classic vehicles, each thoroughly inspected for reliability and value.',
+    importance: 'Buying quality comffy furniture can save you up to 50% compared  reliable.',
+    tips: [
+      'Consider comfort and relaxation',
+      'Check maintenance methods',
+      'Test multiple seats to compare handling and comfort'
+    ],
+    items: [
+      { name: 'All degrees seats', price: 'Fair prices', image: '/20231116_114827.jpg' },
+      { name: 'Entire setup', price: 'Fair prices', image: '/20231117_124022.jpg' },
+      { name: 'Effective for sun basking', price: 'Fair prices', image: '/20231117_125354.jpg' },
+      { name: 'Classic', price: 'Fair prices', image: '/20231124_145446.jpg' }
+    ]
+  },
+  {
+    id: 'motorcycle-sales',
+    title: 'Premium Motorcycle Sales',
+    icon: <GiMechanicGarage className="text-amber-600 text-2xl" />,
+    description: 'From rugged dirt bikes to smooth commuters, we offer the best selection of quality motorcycles.',
+    importance: 'Motorcycles provide affordable transportation with excellent fuel efficiency. Our bikes undergo rigorous inspections to ensure roadworthiness.',
+    tips: [
+      'Consider your primary use (commuting vs off-road) when selecting',
+      'Always invest in quality safety gear',
+      'Regular maintenance is crucial for motorcycle longevity'
+    ],
+    items: [
+      { name: 'Yamaha DT 125', price: 'Fair prices', image: '49.png' },
+      { name: 'Honda CRF 250', price: 'Fair prices', image: '/1727058096885.jpg' },
+      { name: 'Suzuki DR 200', price: 'Fair prices', image: '/20250524_153522.jpg' }
+    ]
+  },
+  {
+    id: 'music-instruments',
+    title: 'Professional Music Instruments',
+    icon: <MdMusicNote className="text-amber-600 text-2xl" />,
+    description: 'Quality instruments for musicians of all levels, from beginners to professionals.',
+    importance: 'Playing musical instruments enhances cognitive abilities, reduces stress, and provides creative expression. We offer instruments that maintain excellent tone and playability.',
+    tips: [
+      'Acoustic guitars should be stored at stable humidity levels',
+      'Electronic keyboards should be covered when not in use',
+      'Regular tuning maintains instrument health and sound quality'
+    ],
+    items: [
+      { name: 'Acoustic Guitar', price: 'Fair prices', image: '/placeholder-guitar.jpg' },
+      { name: 'Mention Yours', price: 'Fair prices', image: '/IMG_20231004_090917_626.jpg' },
+      { name: 'sons-of-men', price: 'Fair prices', image: '/20250417_182101.jpg' }
+    ]
+  },
+  {
+    id: 'music-lessons',
+    title: 'Expert Music Lessons',
+    icon: <GiGuitar className="text-amber-600 text-2xl" />,
+    description: 'Personalized music instruction tailored to your goals and skill level.',
+    importance: 'Structured music education accelerates learning and builds proper technique. Our instructors are experienced performers and educators.',
+    tips: [
+      'Consistent practice (even 15 minutes daily) yields best results',
+      'Record yourself to track progress',
+      'Start with proper posture and hand positioning'
+    ],
+    services: [
+      { name: 'Guitar Lessons', price: 'Fair prices', image: '/20240411_151028.jpg' },
+      { name: 'Keyboard Lessons', price: 'Fair prices', image: '/20240411_152623.jpg' },
+      { name: 'Vocal Training', price: 'Fair prices', image: '/20240411_152738.jpg' }
+    ]
+  },
+  {
+    id: 'art-portraits',
+    title: 'Fine Art & Portraits',
+    icon: <FaPalette className="text-amber-600 text-2xl" />,
+    description: 'Custom artwork that captures personality, emotion, and beauty in every stroke.',
+    importance: 'Art enhances living spaces and preserves memories in a unique, personal way. Our artists combine technical skill with creative vision.',
+    tips: [
+      'Provide clear reference photos for portraits',
+      'Consider lighting in the display location',
+      'Oil paintings require proper curing time'
+    ],
+    services: [
+      { name: 'Portrait Drawing', price: 'Fair prices', image: '/20230419_161818.jpg' },
+      { name: 'Landscape Art', price: 'Fair prices', image: '/20230419_161909.jpg' },
+      { name: 'Custom Commission', price: 'Fair prices', image: '/sonssss.jpg' },
+      { name: 'Custom Commission', price: 'Fair prices', image: '/portrait.jpg' }
+    ]
+  },
+  {
+    id: 'farm-produce',
+    title: 'Fresh Farm Produce',
+    icon: <GiFarmer className="text-amber-600 text-2xl" />,
+    description: 'Locally grown, organic produce delivered fresh from farm to your table.',
+    importance: 'Fresh, local produce retains more nutrients and supports community agriculture. We work directly with farmers to ensure quality and fair prices.',
+    tips: [
+      'Store root vegetables in cool, dark places',
+      'Bananas ripen faster when stored with other fruits',
+      'Fresh corn is best consumed within 3 days of harvest'
+    ],
+    items: [
+      { name: 'Goat', price: 'Fair prices', image: '/20231112_171011.jpg' },
+      { name: 'Goat', price: 'Fair prices', image: '/20230521_162939.jpg' },
+      { name: 'Woolen Sheep', price: 'Fair prices', image: '/20240429_150628.jpg' },
+      { name: 'Grade Rabbits', price: 'Fair prices', image: '/20240510_183728.jpg' },
+      { name: 'Baby Rabbits', price: 'Fair prices', image: '/20240510_183833.jpg' },
+      { name: 'Premature Cows', price: 'Fair prices', image: '/20230415_180331.jpg' },
+      { name: 'Baby Rabbits', price: 'Fair prices', image: '/20240510_183833.jpg' },
+      { name: 'Young Tree', price: 'Fair prices', image: '/20250326_195634.jpg' },
+      { name: 'Hand-Picked Coffee', price: 'Fair prices', image: '/20240622_134738.jpg' },
+      { name: 'Dried Coffee Berries', price: 'Fair prices', image: '/20240622_134645.jpg' },
+      { name: 'Fresh Pineapples', price: 'Fair prices', image: '/20240227_144110.jpg' }
+    ]
+  },
+  {
+    id: 'music-band',
+    title: 'Professional Music Band',
+    icon: <GiPianoKeys className="text-amber-600 text-2xl" />,
+    description: 'Talented musicians creating unforgettable experiences for your special events.',
+    importance: 'Live music elevates events, creating atmosphere and memories. Our versatile band adapts to your musical preferences and event needs.',
+    tips: [
+      'Book at least 3 months in advance for peak seasons',
+      'Provide a playlist of must-play songs',
+      'Consider venue acoustics when planning setup'
+    ],
+    services: [
+      { name: 'Any Performance', price: 'Fair prices', image: '/1729932358493.jpg' },
+      { name: 'Corporate Event', price: 'Fair prices', image: '/VideoCapture_20231006-064028.jpg' },
+      { name: 'Casual Occassions', price: 'Fair prices', image: '/20250417_182101.jpg' }
+    ]
+  },
+  {
+    id: 'bike-adventures',
+    title: 'Epic Bike Tours & Adventures',
+    icon: <FaPalette className="text-amber-600 text-2xl" />,
+    description: 'Visit the place, write your name on it, riding on two wheels..',
+    importance: 'Bike rides are and have been one of the best relaxations and therapies proven by West Virginia.',
+    tips: [
+      'Put on safety gears ',
+      'Ride like a hero and rock it',
+      'Dont need to be professional, just hop on'
+    ],
+    services: [
+      { name: 'Portrait Drawing', price: 'Fair prices', image: '/1703334666360.jpg' },
+      { name: 'Sky-Tarmac Ride', price: 'Fair prices', image: '/1724735261669.jpg' },
+      { name: 'Sky-Tarmac Ride', price: 'Fair prices', image: '/20241207_210825_0000.png.png' },
+      { name: 'Sky-Tarmac Ride', price: 'Fair prices', image: '/20241121_092511_0000.png' },
+      { name: 'Landscape Art', price: 'Fair prices', image: '/20241015_120803_0000.png' },
+      { name: 'Come Tour With the Best', price: 'Fair prices', image: '/20241015_121819_0000.png' },
+      { name: 'With A Variety Of Bikes', price: 'Fair prices', image: '/20241015_122102_0000.png' },
+      { name: 'Camp & Rest', price: 'Fair prices', image: '/1727074906511.jpg' },
+    ]
+  },
+  {
+    id: 'phone-repair',
+    title: 'Phone Sales & Repair',
+    icon: <FaPalette className="text-amber-600 text-2xl" />,
+    description: 'All phone related problems fixed here',
+    importance: 'Phones are by far crucial devices in our lives. And we need to take care of them when they have issues',
+    tips: [
+      'Screen Repairs ',
+      'Software problems solutions',
+      'Battery replacements',
+      'etc'
+    ],
+    services: []
+  }
+];
 
   // Filter categories based on search and selected filter
   const filteredCategories = categories.filter(category => {
